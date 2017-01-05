@@ -19,6 +19,8 @@ def query(inp1,domain):
     print(inp1)
     for index in range(total-1):
         if initial[len(inp1[index])] == -1:
+            #count number of (-1's) and then set value of index and index2 accordingly
+            #then permute the values of the input domain and call recursively "query()"
             index2 = initial[len(inp1[index])+1]
             #permute.permute(inp1[index],inp1[index2],comparison)
             #print("-1 encountered") #input data here itself else blunder!!!!
@@ -51,7 +53,6 @@ def query(inp1,domain):
                     count2 = len(inp1)
                     if(count2 > count):
                         query(inp1,domain)
-                #break
                 index2 = index2+1;
     return
 
