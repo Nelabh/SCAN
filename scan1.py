@@ -11,15 +11,16 @@ for index in range(total):
         final[len(inp1[index])-1] = index
     else :
         final[len(inp1[index])-1] = index    
-print("INITIAL")
-print(initial)
-print("FINAL")
-print(final)
+#print("INITIAL")
+#print(initial)
+#print("FINAL")
+#print(final)
 
 for index in range(total-1):
     if initial[len(inp1[index])] == -1:
         index2 = initial[len(inp1[index])+1]
-        print("-1 encountered") #input data here itself else blunder!!!!
+        #permute.permute(inp1[index],inp1[index2],comparison)
+        #print("-1 encountered") #input data here itself else blunder!!!!
     else:
         index2 = initial[len(inp1[index])]
         while index2 <= final[len(inp1[index])]:
