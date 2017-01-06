@@ -31,19 +31,30 @@ def permute(string1,string2,comparison):
             comstr += common[ind]
     if list1:
         combination(list1,elements)
+##        print("Elements 1")
+##        print(elements)
     if list2:
          combination(list2,elements2)
-    for index in elements:
+##         print("Elements 2")
+##         print(elements2)
+    if elements and elements2:        
+        for index in elements:
+            for index2 in elements2:
+                app = ''.join(sorted(comstr+index+index2))
+                if app not in combi:
+                    combi.append(app)
+    elif elements and not elements2:
+        for index2 in elements:
+            app = ''.join(sorted(comstr+index2))
+            if app not in combi:
+                combi.append(app)
+    elif not elements and  elements2:
         for index2 in elements2:
-            app = ''.join(sorted(comstr+index+index2))
+            app = ''.join(sorted(comstr+index2))
             if app not in combi:
                 combi.append(app)
     combi = sorted(combi, key=lambda x: len(x))
     return combi
-
-def lexico(string):
-    return
-
 elements = []
 list1 = ['a','b','c']
 combination(list1,elements)
