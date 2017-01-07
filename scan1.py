@@ -12,6 +12,7 @@ def query(inp1,domain):
         else :
             final[len(inp1[index])-1] = index    
     for index in range(total-1):
+        inp1 = sorted(inp1, key=lambda x: len(x))
 ##        print("INITIAL")
 ##        print(initial)
 ##        print("FINAL")
@@ -65,7 +66,7 @@ def query(inp1,domain):
                     for x in combi:
                         if x not in inp1:
                             inp1.append(x)
-                    inp1 = sorted(inp1, key=lambda x: len(x))
+                            inp1 = sorted(inp1, key=lambda x: len(x))
                     count2 = len(inp1)
                     if(count2 > count):
                         query(inp1,domain)
@@ -125,14 +126,20 @@ def query(inp1,domain):
                     for x in combi:
                         if x not in inp1:
                             inp1.append(x)
-                    inp1 = sorted(inp1, key=lambda x: len(x))
+                            inp1 = sorted(inp1, key=lambda x: len(x))
                     count2 = len(inp1)
                     if(count2 > count):
                         query(inp1,domain)
                 index2 = index2+1;
+##    print("INITIAL")
+##    print(initial)
+##    print("FINAL")
+##    print(final)
+##    print("Input:")
+##    print(inp1)
     return inp1
 
-inp1 = ['a','b','ac','abcd','abcde']
-domain = 5
+inp1 = ['a','b','ac','ace','abc','abcd','abcde','abcdef']
+domain = 6
 states = query(inp1,domain)
 print(states)
