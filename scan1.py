@@ -1,5 +1,5 @@
 import permute
-
+import probability
 def query(inp1,domain):
     total = len(inp1)
     initial = [-1]*domain
@@ -139,7 +139,7 @@ def query(inp1,domain):
 ##    print(inp1)
     return inp1
 
-inp1 = ['a','b','ac','ace','abc','abcd','abcde','abcdef']
-domain = 6
+inp1 = ['a','b','ac','abcd','abcde']
+domain = 5
 states = query(inp1,domain)
 print(states)
