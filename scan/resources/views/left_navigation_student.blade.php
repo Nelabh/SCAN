@@ -11,12 +11,12 @@
                     
                 </div>
                 <div class="logo-element">
-                    SCAN                </div>
+                    SCAN                
+                </div>
                 </li>  
-           
+
             </ul>
 
         </div>
     </nav>
 
-            
