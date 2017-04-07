@@ -18,25 +18,47 @@
 
 <body class="gray-bg">
 
-    <div class="middle-box text-center loginscreen animated fadeInDown">
+    
+
+
+
+
+
+
+
+
+ <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
+            <div>
+
+                <h1 class="logo-name">SCAN</h1>
+
+            </div>
+            <h3>Welcome to SCAN</h3>
+            <p>Perfectly designed to know the correct knowledge state of student
+                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+            </p>
             <p>Login in. To see it in action.</p>
             <form class="m-t" role="form" method="post" action="{{URL::route('login')}}">
-                {{csrf_field()}}
+              {{csrf_field()}}
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Customer Code" required name="customer_code">
+                    <input type="email" class="form-control" placeholder="Username" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required name="password">
+                    <input type="password" class="form-control" placeholder="Password" required="">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
-            </form>
-        
-             
                 
+                <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="#">Create an account</a>
+            </form>
+            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
         </div>
     </div>
+
+
+
 
     <!-- Mainly scripts -->
     <script src = "{{URL::asset('js/jquery-2.1.1.js')}}"></script>
