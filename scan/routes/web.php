@@ -14,6 +14,7 @@
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('dashboard', array('as'=>'dashboard','uses'=>'DashboardController@index'));
+	Route::resource('questions','QuestionController');
 });
 
 Route::get('/',array('as'=>'home','uses'=>'PagesController@home'));
