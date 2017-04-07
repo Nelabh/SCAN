@@ -12,6 +12,7 @@ use Auth;
 use App\User;
 use App\UserDetails;
 use Session;
+use Hash;
 class PagesController extends BaseController
 {
 	public function home(){
@@ -35,35 +36,46 @@ class PagesController extends BaseController
 			'password' => 'required',
 			);
 		
+
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 				//dd("yes;");
 			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
+
 			if(Auth::attempt($data)){
 				return Redirect::intended('dashboard')->with('success','Successfully Logged In');
 			}
 			else{
-				return Redirect::route('home')->with('message','Your Customer Code / Password combination is incorrect!')->withInput();
+				return Redirect::route('login')->with('message','Your Customer Code / Password combination is incorrect!')->withInput();
 			}
+
 		}
+
 		
 	}
+	public function register(){
+		return View::make('register');
+	}
+	public function signup(){
+		$data=Input::all();
+		$user=new User;
+		$user->name=$data['name'];
+		$user->email=$data['email'];
+		$user->password=Hash::make($data['password']);
+		$user->role=$data['role'];
+		$user->save();
+		$ud=new UserDetails;
+		$ud->address=$data['address'];
+		$ud->contact=$data['contact'];
+		$ud->father=$data['father'];
+		$ud->user_id = $user->id;
+		$ud->save();
+		 return Redirect::route('dashboard')->with('message','Successfully registered!!');
 
-	public function dashboard(){
-		if(Auth::check()){
-			if(Auth::user()->level==1){
-				return StudentController::student();
-			}
-			
-		}
-		else{
-			return Redirect::route('home');
-		}
 		
 	}
-
-
+	
 	
 }

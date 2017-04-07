@@ -17,6 +17,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('questions','QuestionController');
 });
 
-Route::get('/',array('as'=>'home','uses'=>'PagesController@home'));
+Route::get('/',array('as'=>'login','uses'=>'PagesController@home'));
 Route::get('logout',array('as'=>'logout','uses'=>'PagesController@logout'));
-Route::post('log',array('as'=>'login','uses'=>'PagesController@log'));
+Route::post('log',array('as'=>'log','uses'=>'PagesController@log'));
+
+Route::get('register',array('as'=>'register','uses'=>'PagesController@register'));
+Route::post('signup',array('as'=>'signup','uses'=>'PagesController@signup'));
+
