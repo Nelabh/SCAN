@@ -23,4 +23,10 @@ Route::post('log',array('as'=>'log','uses'=>'PagesController@log'));
 
 Route::get('register',array('as'=>'register','uses'=>'PagesController@register'));
 Route::post('signup',array('as'=>'signup','uses'=>'PagesController@signup'));
+Route::get('profile',array('as'=>'profile','uses'=>'PagesController@profile'));
+Route::post('editprofile',array('as'=>'editprofile','uses'=>'PagesController@editprofile'));
+
+
+
+
 

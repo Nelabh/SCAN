@@ -37,6 +37,18 @@
             </li>
             @endif
 
+        @if(Request::path() == 'profile')
+
+        <li class="active">
+            <a href="{{URL::route('profile')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile</span></a>
+        </li>
+        @else
+
+        <li >
+            <a href="{{URL::route('profile')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile</span></a>
+        </li>
+        @endif  
+
     </ul>
 
 </div>
