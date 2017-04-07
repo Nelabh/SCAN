@@ -7,7 +7,7 @@
 
 <body>
     <div id="wrapper">
-        @include('leftnavigation_teacher')
+        @include('left_navigation_teacher')
         <div id="page-wrapper" class="gray-bg dashbard-1">
             @include('topnavigation')
             <div class="wrapper wrapper-content animated fadeIn">

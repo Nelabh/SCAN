@@ -42,10 +42,10 @@
             <form class="m-t" role="form" method="post" action="{{URL::route('login')}}">
               {{csrf_field()}}
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" required="">
+                    <input type="email" class="form-control" name = "email" placeholder="E-mail" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="">
+                    <input type="password" class="form-control" name = "password" placeholder="Password" required="">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 

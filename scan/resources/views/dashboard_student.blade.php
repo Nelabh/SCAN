@@ -9,7 +9,7 @@
 
 <body>
     <div id="wrapper">
-        @include('leftnavigation_student')
+        @include('left_navigation_student')
         <div id="page-wrapper" class="gray-bg dashbard-1">
             @include('topnavigation')
             <div class="wrapper wrapper-content animated fadeIn">
@@ -117,7 +117,7 @@
                                     <tbody>
                                        
                                         <tr class="gradeX">
-                                           <td> <a href = "{{URL::route('customers',$t->customer_id)}}"></a></td>
+                                           <td> <a href = "#"></a></td>
                                             <td></td>
                                             <td></td>
                                             <td class="center"></td>

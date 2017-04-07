@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use View;
 class DashboardController extends Controller
 {
 	public function index(){
