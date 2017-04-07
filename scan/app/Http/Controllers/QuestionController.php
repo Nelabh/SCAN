@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use View;
+use App\Question;
+use Redirect;   
 class QuestionController extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class QuestionController extends Controller
     {
         if(Auth::check()&&Auth::user()->role >=2){
             $action = 'Questions';
-            return View::make('questions',compact('action'));
+            $questions = Question::all();
+            return View::make('questions',compact('action','questions'));
         }
         else{
                 return Redirect::route('dashboard')->with('failure',"Access Denied");
@@ -41,7 +44,23 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $question = new Question;
+        $question->question = $data['question'];
+        $question->a = $data['a'];
+        $question->b = $data['b'];
+        $question->c = $data['c'];
+        $question->d = $data['d'];
+        $question->correct = $data['correct'];
+        $question->added_by =Auth::user()->id;
+
+        if($question->save()){
+            return Redirect::route('questions.index')->with('success',"Question Successfully Added");
+        }
+        else{
+            return Redirect::route('questions.index')->with('failure',"Unable To Add Question. Please Try Again Later");
+        }
+
     }
 
     /**

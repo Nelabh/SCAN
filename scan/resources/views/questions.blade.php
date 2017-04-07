@@ -44,11 +44,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                     @if(count($questions))
+                                    <?php $i = 1;?>
+                                    @foreach($questions as $que)
+                                    <tr class="gradeX">
+                                        <td>{{$i}}</td>
+                                        <td>{{$que->question}}</td>
+                                        <td>{{$que->a}}</td>
+                                        <td>{{$que->b}}</td>
+                                        <td>{{$que->c}}</td>
+                                        <td>{{$que->d}}</td>
+                                        <td>{{$que->correct}}</td>
+
+                                        <td><a href = "{{URL::route('questions.edit',$que->id)}}"class="btn btn-outline btn-blue" type="button">
+                                            <i class="fa fa-trash-o"></i> <span class="bold">Edit</span>
+                                        </a>
+                                    </td>
+
+                                        <td><a href = "{{URL::route('questions.destroy',$que->id)}}"class="btn btn-outline btn-danger" type="button">
+                                            <i class="fa fa-trash-o"></i> <span class="bold">Delete</span>
+                                        </a>
+                                    </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                    @endforeach
+                                    @else
+                                    <tr class="gradeX">
+                                        <td colspan="9"><center>NO DEVICE ADDED</center></td>
+                                    </tr>
+                                    @endif
                                    
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5">
+                                    <td colspan="9">
                                         <ul class="pagination pull-right"></ul>
                                     </td>
                                 </tr>
@@ -75,7 +104,7 @@
                     <div id = "amt" class="form-group"><label class="col-sm-2 control-label">Question</label>
 
                         <div class="col-sm-10">
-                            <div class="input-group m-b"><input type="text" name = "item"  placeholder = "" required  class="form-control"></div>
+                            <div class="input-group m-b"><input type="text" name = "question"  placeholder = "" required  class="form-control"></div>
                         </div>
                     </div>
 
