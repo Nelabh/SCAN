@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 use View;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -26,22 +27,31 @@ class PagesController extends BaseController
 		}
 		return Redirect::route('home');
 	}
-	public function log(){
-		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'));
+	public function log(Request $request){
+		$data = array('email'=>$request->get('email'),'password'=>$request->get('password'));
+		//dd($data);
 		$rules=array(
 			'email' => 'required',
 			'password' => 'required',
 			);
 		
-		
-			if(Auth::attempt($data)){
-				
 
+		$validator = Validator::make($data, $rules);
+		if($validator->fails()){
+				//dd("yes;");
+			return Redirect::back()->withErrors($validator->errors())->withInput();
+		}
+		else {
+
+			if(Auth::attempt($data)){
 				return Redirect::intended('dashboard')->with('success','Successfully Logged In');
 			}
 			else{
 				return Redirect::route('home')->with('message','Your Customer Code / Password combination is incorrect!')->withInput();
 			}
+
+		}
+
 		
 	}
 	public function signup(){
