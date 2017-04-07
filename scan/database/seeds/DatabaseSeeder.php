@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\UserDetails;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,6 +20,14 @@ class DatabaseSeeder extends Seeder
         $user->password = Hash::make("student");
         $user->role = 1;
         $user->save();
+
+        $user_details = new UserDetails;
+        $user_details->contact = "9999999999";
+        $user_details->father = "ddddd";
+        $user_details->address = "dfghjk";
+        $user_details->user_id = $user->id;
+        $user_details->save();
+
         $user = new User;
         $user->name = "Teacher";
         $user->email = "teacher@jssaten.ac.in";
@@ -25,7 +35,11 @@ class DatabaseSeeder extends Seeder
         $user->role = 2;
         $user->save();
 
-
-
+        $user_details = new UserDetails;
+        $user_details->contact = "9999999999";
+        $user_details->father = "ddddd";
+        $user_details->address = "dfghjk";
+        $user_details->user_id = $user->id;
+        $user_details->save();
     }
 }

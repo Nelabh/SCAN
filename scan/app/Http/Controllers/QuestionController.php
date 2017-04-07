@@ -107,4 +107,13 @@ class QuestionController extends Controller
     {
         //
     }
+    public function delete_questions($id){
+        $question = Question::find($id);
+        if($question->delete()){
+            return Redirect::route('questions.index')->with('success','Question Successfully Deleted');
+        }
+        else{
+            return Redirect::route('questions.index')->with('success','Unable To Delete Question. Please Try Again');
+        }
+    }
 }

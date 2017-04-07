@@ -39,7 +39,6 @@
                                         <th>Option C</th>
                                         <th>Option D</th>
                                         <th>Option Correct</th>
-                                        <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
@@ -55,13 +54,7 @@
                                         <td>{{$que->c}}</td>
                                         <td>{{$que->d}}</td>
                                         <td>{{$que->correct}}</td>
-
-                                        <td><a href = "{{URL::route('questions.edit',$que->id)}}"class="btn btn-outline btn-blue" type="button">
-                                            <i class="fa fa-trash-o"></i> <span class="bold">Edit</span>
-                                        </a>
-                                    </td>
-
-                                        <td><a href = "{{URL::route('questions.destroy',$que->id)}}"class="btn btn-outline btn-danger" type="button">
+                                        <td><a href = "{{URL::route('delete_questions',$que->id)}}"class="btn btn-outline btn-danger" type="button">
                                             <i class="fa fa-trash-o"></i> <span class="bold">Delete</span>
                                         </a>
                                     </td>
@@ -70,14 +63,14 @@
                                     @endforeach
                                     @else
                                     <tr class="gradeX">
-                                        <td colspan="9"><center>NO DEVICE ADDED</center></td>
+                                        <td colspan="8"><center>NO QUESTIONS ADDED</center></td>
                                     </tr>
                                     @endif
                                    
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="9">
+                                    <td colspan="8">
                                         <ul class="pagination pull-right"></ul>
                                     </td>
                                 </tr>

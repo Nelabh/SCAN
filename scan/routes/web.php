@@ -23,4 +23,5 @@ Route::post('log',array('as'=>'log','uses'=>'PagesController@log'));
 
 Route::get('register',array('as'=>'register','uses'=>'PagesController@register'));
 Route::post('signup',array('as'=>'signup','uses'=>'PagesController@signup'));
+Route::get('delete_questions/{id}',array('as'=>'delete_questions','uses'=>'QuestionController@delete_questions'));
 
