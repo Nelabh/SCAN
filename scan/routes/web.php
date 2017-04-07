@@ -19,3 +19,6 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/',array('as'=>'home','uses'=>'PagesController@home'));
 Route::get('logout',array('as'=>'logout','uses'=>'PagesController@logout'));
 Route::post('log',array('as'=>'login','uses'=>'PagesController@log'));
+Route::get('register',array('as'=>'register','uses'=>'PagesController@register'));
+Route::post('signup',array('as'=>'signup','uses'=>'PagesController@signup'));
+

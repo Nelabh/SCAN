@@ -33,7 +33,7 @@ class PagesController extends BaseController
 			'password' => 'required',
 			);
 		
-		 {
+		
 			if(Auth::attempt($data)){
 				
 
@@ -42,22 +42,24 @@ class PagesController extends BaseController
 			else{
 				return Redirect::route('home')->with('message','Your Customer Code / Password combination is incorrect!')->withInput();
 			}
-		}
-	}
-
-	public function dashboard(){
-		if(Auth::check()){
-			if(Auth::user()->level==1){
-				return StudentController::student();
-			}
-			
-		}
-		else{
-			return Redirect::route('home');
-		}
 		
 	}
+	public function signup(){
+		$data=Input::all();
+		$user=new User;
+		$user->email=$data['email'];
+		$user->password=Hash::make($data['password']);
+		$user->role=$data['role'];
+		$user->save();
+		$ud=new UserDetails;
+		$ud->address=$data['address'];
+		$ud->contact=$data['contact'];
+		$us->father=$data['father'];
+		$us->save();
+		 return Redirect::route('home')->with('message','Successfully registered!!')
 
-
+		
+	}
+	
 	
 }
