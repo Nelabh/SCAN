@@ -39,7 +39,7 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Login in. To see it in action.</p>
-            <form class="m-t" role="form" method="post" action="{{URL::route('login')}}">
+            <form class="m-t" role="form" method="post" action="{{URL::route('log')}}">
               {{csrf_field()}}
                 <div class="form-group">
                     <input type="email" class="form-control" name = "email" placeholder="E-mail" required="">

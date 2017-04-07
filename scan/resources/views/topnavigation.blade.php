@@ -6,7 +6,7 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to TURBO.</span>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to SCAN.</span>
                         </li>
                         <li>
                             <a href="{{URL::route('logout')}}">

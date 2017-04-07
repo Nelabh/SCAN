@@ -27,7 +27,8 @@
             </div>
             <h3>Register to SCAN</h3>
             <p>Create account to see it in action.</p>
-            <form class="m-t" role="form" action="{{URL::route('signup')}}">
+            <form class="m-t" role="form" method="post" action="{{URL::route('signup')}}">
+              {{csrf_field()}}
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Name" name="name" required="">
                 </div>
@@ -46,8 +47,8 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="City" name="address" required="">
                 </div>
-                <div class="i-checks"><label> <input type="radio" value="2" name="role"> <i></i> Teacher </label></div>
-                                        <div class="i-checks"><label> <input type="radio" checked="" value="1" name="role"> <i></i> Student checked </label></div>
+                Sign In As:<div class="i-checks"><label> <input type="radio" value="2" name="role"> <i></i> Teacher </label></div>
+                                        <div class="i-checks"><label> <input type="radio" checked="" value="1" name="role"> <i></i> Student  </label></div>
 
                 <div class="form-group">
                         <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
