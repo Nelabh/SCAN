@@ -16,17 +16,17 @@
                 <div class="p-w-md m-t-sm">
                     <div class="row">
 
-                       
+
                         <div class="col-sm-4">
                         </div>
-                        
+
                         <div class="col-sm-4 text-center">
 
-                            
+
 
 
                             <table class="table small m-t-sm">
-                                
+
                             </table>
 
 
@@ -38,14 +38,14 @@
 
 
                     <div class="wrapper wrapper-content animated fadeIn">
-                       
+
 
 
                       <div class="row">
                         <div class="col-lg-12">
                             <div class="ibox">
                                 <div class="ibox-title">
-                                    <h5>Dealers list</h5>
+                                    <h5>Students list</h5>
                                 </div>
                                 <div class="ibox-content">
                                     <input type="text" class="form-control input-sm m-b-xs" id="filter"
@@ -54,22 +54,39 @@
                                     <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
                                         <thead>
                                             <tr>
-                                                <th>Dealer Name</th>
-                                                <th>Customer Code</th>
-                                                <th>Diesel Rate</th>
-                                                <th>Petrol Rate</th>
-                                                <th>Registered Customers</th>
-                                                <th>Total income</th>
-                                                <th>Total volume sold</th>
+                                                <th>S. No.</th>
 
+                                                <th>Student Name</th>
+                                                <th>Email</th>
+                                                <th>Contact</th>
+                                                <th>Father's Name</th>
+                                                <th>Address</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+                                             @if(count($students))
+                                    <?php $i = 1;?>
+                                    @foreach($students as $stu)
+                                    <tr class="gradeX">
+                                        <td>{{$i}}</td>
+                                        <td>{{$stu->name}}</td>
+                                        <td>{{$stu->email}}</td>
+                                        <td>{{$stu->contact}}</td>
+                                        <td>{{$stu->father}}</td>
+                                        <td>{{$stu->address}}</td>
+                                        </tr>
+                                    <?php $i++; ?>
+                                    @endforeach
+                                    @else
+                                    <tr class="gradeX">
+                                        <td colspan="6"><center>NO STUDENTS ADDED</center></td>
+                                    </tr>
+                                    @endif
+
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="7">
+                                                <td colspan="6">
                                                     <ul class="pagination pull-right"></ul>
                                                 </td>
                                             </tr>
@@ -85,7 +102,7 @@
 
 
 
-                
+
             </div>
 
 
@@ -190,7 +207,7 @@ $(document).ready(function() {
     @else
     [{{explode('-',date('Y-m-d',strtotime("-".$i." days")))[2]}},0],   
     @endif
-    
+
     @else
     @foreach($petrol_graph as $pg)
     @if($i == 0)
@@ -220,7 +237,7 @@ $(document).ready(function() {
     @else
     [{{explode('-',date('Y-m-d',strtotime("-".$i." days")))[2]}},0],   
     @endif
-    
+
     @else
     @foreach($diesel_graph as $pg)
     @if($i == 0)
@@ -240,7 +257,7 @@ $(document).ready(function() {
     @endforeach
     @endif
     @endfor
-    
+
     ];
     $("#flot-dashboard5-chart").length && $.plot($("#flot-dashboard5-chart"), [
         data1,  data2

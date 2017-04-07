@@ -6,7 +6,7 @@
                  <!--  <img alt="image" src="{{URL::asset('img/bpcl.png')}}"/> -->
              </span>
              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Welcome User</strong>
+                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Welcome {{Auth::user()->name}}</strong>
                 </span> <span class="text-muted text-xs block"></span> </span> </a>
 
             </div>

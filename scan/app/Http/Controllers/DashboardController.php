@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use View;
+use App\User;
+use App\UserDetails;
 class DashboardController extends Controller
 {
 	public function index(){
@@ -15,7 +17,14 @@ class DashboardController extends Controller
 				return View::make('dashboard_student', compact('action'));
 			}
 			else{
-				return View::make('dashboard_teacher', compact('action'));
+				$students = User::where('role','1')->get();
+				foreach ($students as $stu) {
+					$student_detail = UserDetails::where('user_id',$stu->id)->first();
+					$stu->father = $student_detail->father;
+					$stu->address = $student_detail->address;
+					$stu->contact = $student_detail->contact;
+				}
+				return View::make('dashboard_teacher', compact('action','students'));
 			}
 		}
 	}
