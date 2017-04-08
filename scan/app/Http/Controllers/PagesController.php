@@ -26,7 +26,7 @@ class PagesController extends BaseController
 			Auth::logout();
 			Session::forget('email');
 		}
-		return Redirect::route('home');
+		return Redirect::route('login');
 	}
 	public function log(Request $request){
 		$data = array('email'=>$request->get('email'),'password'=>$request->get('password'));
@@ -94,7 +94,38 @@ class PagesController extends BaseController
 		$user=User::where('email',Auth::user()->email)->first();
 		$user->name=$data['name'];
 		$user->email=$data['email'];
-		$user->password=Hash::make($data['password']);
+		
+		
+		$user->save();
+		$ud=UserDetails::where('user_id',$user->id)->first();
+		$ud->address=$data['address'];
+		$ud->contact=$data['contact'];
+		$ud->father=$data['father'];
+		
+		$ud->save();
+		 return Redirect::route('dashboard')->with('message','Successfully Edited Profile!!');
+
+	}
+	public function studentprofile(){
+		$action="Edit Profile";
+		$user=User::where('email',Auth::user()->email)->first();
+		$user->father=UserDetails::where('user_id',$user->id)->first()->father;
+		$user->contact=UserDetails::where('user_id',$user->id)->first()->contact;
+		$user->address=UserDetails::where('user_id',$user->id)->first()->address;
+
+
+
+
+		return View::make('studentprofile',compact('user','action'));
+	}
+	
+	public function editstudentprofile(){
+		$action="Edit Details";
+		$data=Input::all();
+		$user=User::where('email',Auth::user()->email)->first();
+		$user->name=$data['name'];
+		$user->email=$data['email'];
+		
 		
 		$user->save();
 		$ud=UserDetails::where('user_id',$user->id)->first();
