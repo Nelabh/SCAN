@@ -24,10 +24,10 @@ def probadjust(correct,kst,start,questate,domain,m_f,probab):
         factor = add*sub
     factor=factor*m_f1
     sum1=0
-    print(probab)
+    ##print(probab)
     for i in range(len(probab)):
         sum1 = sum1 + probab[i]
-    print("Sum before: "+str(sum1))
+    ##print("Sum before: "+str(sum1))
     for st in kst:
         if(start in st):
             if(correct == 1):
@@ -40,10 +40,10 @@ def probadjust(correct,kst,start,questate,domain,m_f,probab):
             else:
                 probab[kst.index(st)]+=factor/sub
     sum2=0
-    print(probab)
+    ##print(probab)
     for i in range(len(probab)):
         sum2 = sum2 + probab[i]
-    print("Sum After: "+str(sum2))
+    ##print("Sum After: "+str(sum2))
     if(sum1 == sum2):
         print("same")
     else:
@@ -57,7 +57,7 @@ def pcal(kst,domain):
     probab = [initial_probability*m_f]*len(kst)
     
     start=probability.startState(domain,kst,dom,initial_probability,probab,init)
-    print(start)
+    ##print(start)
     total = len(kst)
     initial = [-1]*domain
     i,j = 0,0
@@ -72,12 +72,12 @@ def pcal(kst,domain):
     csv_f=csv.reader(f)                
     noq=5
     for x in range(noq):
-        print("Start: "+start)
+        ##print("Start: "+start)
         for t in kst:
             if(start in t):
                 questate = t
-                print("Questate: ")
-                print(questate)
+                ##print("Questate: ")
+                ##print(questate)
                 break
             else:
                 continue
@@ -101,6 +101,7 @@ def pcal(kst,domain):
                 break
         if(questate == dom and correct == 1):
             print("Final State Reached")
+            print("State:"+kst[6])
             break
         init[dom.index(start)] = 1
         start=probability.startState(domain,kst,dom,initial_probability,probab,init)
