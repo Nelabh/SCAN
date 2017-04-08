@@ -9,7 +9,7 @@
 
 <body>
     <div id="wrapper">
-        @include('left_navigation_teacher')
+        @include('left_navigation_student')
         <div id="page-wrapper" class="gray-bg dashbard-1">
             @include('topnavigation')
            

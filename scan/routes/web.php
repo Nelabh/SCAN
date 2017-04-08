@@ -26,5 +26,8 @@ Route::post('signup',array('as'=>'signup','uses'=>'PagesController@signup'));
 
 Route::get('profile',array('as'=>'profile','uses'=>'PagesController@profile'));
 Route::post('editprofile',array('as'=>'editprofile','uses'=>'PagesController@editprofile'));
+
+Route::get('studentprofile',array('as'=>'studentprofile','uses'=>'PagesController@studentprofile'));
+Route::post('editstudentprofile',array('as'=>'editstudentprofile','uses'=>'PagesController@editstudentprofile'));
 Route::get('delete_questions/{id}',array('as'=>'delete_questions','uses'=>'QuestionController@delete_questions'));
 
