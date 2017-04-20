@@ -33,3 +33,4 @@ Route::get('studentprofile',array('as'=>'studentprofile','uses'=>'PagesControlle
 Route::post('editstudentprofile',array('as'=>'editstudentprofile','uses'=>'PagesController@editstudentprofile'));
 Route::get('delete_questions/{id}',array('as'=>'delete_questions','uses'=>'QuestionController@delete_questions'));
 
+Route::get('scan/initiate',array('as'=>'initiate','uses'=>'ScanController@initiate'));
