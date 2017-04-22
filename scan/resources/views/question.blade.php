@@ -9,7 +9,7 @@
 
 <body>
     <div id="wrapper">
-        @include('left_navigation_teacher')
+        @include('left_navigation_student')
         <div id="page-wrapper" class="gray-bg dashbard-1">
             @include('topnavigation')
            
@@ -22,13 +22,9 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             
-                            <b>Question</b>
-                            <div class="summernote">
-                            <h3>Question No.1</h3>
-                            dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-                            <br/>
+                          <div class="summernote">
+                            <h3>Question </h3>
+                            {{$question->question}}<br/>
                             <br/>
 
 
@@ -41,10 +37,10 @@
 
                          <div class="col-sm-10">
                                         
-                                        <div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> Option one </label></div>
-                                        <div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> Option two checked </label></div>
-                                         <div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> Option one </label></div>
-                                        <div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> Option two checked </label></div>
+                                        <div class="i-checks"><label> <input type="radio" value="A" name="ans" required> <i></i> {{$question->a}} </label></div>
+                                        <div class="i-checks"><label> <input type="radio"  value="B" name="ans" required> <i></i> {{$question->b}} </label></div>
+                                         <div class="i-checks"><label> <input type="radio" value="C" name="ans" required> <i></i> {{$question->c}}  </label></div>
+                                        <div class="i-checks"><label> <input type="radio"  value="D" name="ans" required> <i></i> {{$question->d}}  </label></div>
                                         
                                     </div>
                           
@@ -56,7 +52,7 @@
 
 
                     <div class="mail-body text-right tooltip-demo">
-                        <a href="mailbox.html" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> Submit</a>
+                        <a href="{{URL::route('question')}}" class="btn btn-sm btn-primary"><i class="fa fa-reply"></i> Submit</a>
                        
                     </div>
                 </div>

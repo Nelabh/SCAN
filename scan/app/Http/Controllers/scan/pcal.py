@@ -57,7 +57,7 @@ def pcal(kst,domain):
     probab = [initial_probability*m_f]*len(kst)
     
     start=probability.startState(domain,kst,dom,initial_probability,probab,init)
-    print(start)
+    ##print(start)
     total = len(kst)
     initial = [-1]*domain
     i,j = 0,0

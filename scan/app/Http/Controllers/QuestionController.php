@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use View;
 use App\Question;
+use App\Domain;
+
 use Redirect;   
 class QuestionController extends Controller
 {
@@ -19,7 +21,8 @@ class QuestionController extends Controller
         if(Auth::check()&&Auth::user()->role >=2){
             $action = 'Questions';
             $questions = Question::all();
-            return View::make('questions',compact('action','questions'));
+            $domain = Domain::all();
+            return View::make('questions',compact('action','questions','domain'));
         }
         else{
                 return Redirect::route('dashboard')->with('failure',"Access Denied");
@@ -52,6 +55,7 @@ class QuestionController extends Controller
         $question->c = $data['c'];
         $question->d = $data['d'];
         $question->correct = $data['correct'];
+        $question->domain_id = $data['domain_id'];
         $question->added_by =Auth::user()->id;
 
         if($question->save()){

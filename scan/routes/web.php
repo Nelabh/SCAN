@@ -18,7 +18,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/',array('as'=>'login','uses'=>'PagesController@home'));
-Route::get('question',array('as'=>'question','uses'=>'PagesController@question'));
+Route::get('question',array('as'=>'question','uses'=>'ScanController@question'));
+Route::get('result',array('as'=>'result','uses'=>'ScanController@result'));
 
 Route::get('logout',array('as'=>'logout','uses'=>'PagesController@logout'));
 Route::post('log',array('as'=>'log','uses'=>'PagesController@log'));

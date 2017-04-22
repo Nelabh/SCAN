@@ -140,7 +140,17 @@
                             </div>
                         </div>
                     </div>
-                    
+                     <div class="form-group"><label class="col-sm-2 control-label">Domain</label>
+
+                        <div class="col-sm-10">
+                            <div class="input-group m-b"><select class="form-control m-b" name="domain_id">
+                                @foreach($domain as $dom)
+                                        <option value = "{{$dom->id}}">{{$dom->slug}}</option>
+                                    @endforeach
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="modal-footer">

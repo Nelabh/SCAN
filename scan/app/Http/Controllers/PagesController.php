@@ -22,11 +22,7 @@ class PagesController extends BaseController
 		return View::make('home');
 	}
 
-	public function question(){
-		$action="Questions";
-		
-		return View::make('question',compact('action'));
-	}
+	
 	public function logout(){
 		if(Auth::check()){
 			Auth::logout();
