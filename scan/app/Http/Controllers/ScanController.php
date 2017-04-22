@@ -22,7 +22,6 @@ class ScanController extends Controller
 		//session()->forget('question_id');
 		$action="Questions";
 		$last = Question::max('id');
-
 		if(session('question_id')){
 			$id = session('question_id');
 			if($id == $last){
@@ -37,13 +36,11 @@ class ScanController extends Controller
 		else{
 			$question = Question::first();
 			session(['question_id'=>$question->id]);
-
 		}
 		return View::make('question',compact('action','question'));
 	}
 	public function result(){
 		session()->forget('question_id');
-
 		$action="Questions";
 		return View::make('result',compact('action'));
 	}

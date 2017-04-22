@@ -7,7 +7,7 @@ def startState(domain,inputStates,dom,initial_probability,probab,init):
                 sumprob[ord(d)] = sumprob[ord(d)] + probab[i]
         k=k+1
     initState = sumprob.index(max(sumprob))
-    ##print(sumprob)
+    print(sumprob)
    
     return chr(initState)
 ##inp1 = ['a','b','ab','bc','abc','abcd','abcde']
