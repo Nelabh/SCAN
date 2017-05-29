@@ -22,7 +22,7 @@
               <div class="pull-left m-r-md">
                 <i class="fa fa-check-circle text-navy mid-icon"></i>
               </div>
-              <h2>Successfully Mastered All Stages.</h2>
+              <h2>Successfully Mastered Following Stages.</h2>
             </div>
           </div>
         </div>
@@ -47,28 +47,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $i=1; ?>
+                  @foreach($domain as $dom)
+                  @if($dom->id <= $domain_id )
                   <tr>
-                    <td>1</td>
-                    <td>Addition</td>
-                    
+                    <td>{{$i++}}</td>
+                    <td>{{$dom->slug}}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Subtraction</td>
-
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Multiplication</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Division</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Modulus</td>
-                  </tr>
+                  @endif
+                  @endforeach
+                  
                 </tbody>
               </table>
 
@@ -91,10 +79,24 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $i=1; ?>
+
+                  @if($domain_id == 6)
                   <tr>
                     <td>Final State Reached</td>
                    
                   </tr>
+                  @else
+                  @foreach($domain as $dom)
+                  @if($dom->id > $domain_id && $dom->id != 6)  
+                  <tr>
+                    <td>{{$i++}}</td>
+                    <td>{{$dom->slug}}</td>
+                  </tr>
+                  @endif
+                  @endforeach
+                  @endif
+
                 </tbody>
               </table>
 

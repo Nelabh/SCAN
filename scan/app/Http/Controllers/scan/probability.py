@@ -10,6 +10,6 @@ def startState(domain,inputStates,dom,initial_probability,probab,init):
     ##print(sumprob)
    
     return chr(initState)
-##inp1 = ['a','b','ab','bc','abc','abcd','abcde']
-##domain = 5
-##print(startState(domain,inp1))
+inp1 = ['a','b','ab','bc','abc','abcd','abcde']
+domain = 5
+print(startState(domain,inp1))
